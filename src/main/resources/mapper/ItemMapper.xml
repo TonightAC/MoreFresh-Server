@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.suresursus.fore.mapper.ItemMapper">
+    <select id="getCategory" parameterType="Integer" resultType="com.suresursus.fore.pojo.Item">
+        select * from item where cno=#{cno}
+    </select>
+
+    <select id="getAllItem" resultType="com.suresursus.fore.pojo.Item">
+        select * from item
+    </select>
+
+    <select id="getShoppingcart" parameterType="Integer" resultType="com.suresursus.fore.pojo.Item">
+        select item.* from item, shoppingcart where uno=#{uno} and item.ino = shoppingcart.ino
+    </select>
+
+    <select id="getItem" parameterType="Integer" resultType="com.suresursus.fore.pojo.Item">
+        select * from item where ino=#{ino}
+    </select>
+</mapper>
